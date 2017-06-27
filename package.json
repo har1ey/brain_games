@@ -1,6 +1,6 @@
 {
   "name": "brain_games_har1ey",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Hexlet - Brain Games",
   "main": "index.js",
   "bin": {
@@ -11,6 +11,7 @@
     "babel-node": "babel-node",
     "babel-version": "babel --version",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "eslint": "eslint",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -28,9 +29,13 @@
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
-    "readline-sync": "*"
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*",
+    "babel-eslint": "*"
   },
   "dependencies": {
-    "brain_games_har1ey": "^1.0.7"
+    "brain_games_har1ey": "^1.0.7",
+    "readline-sync": "*"
   }
 }
