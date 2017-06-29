@@ -39,11 +39,15 @@ const genRandom = () => {
       return `${a} * ${b} `;
     }
   }
-  //  const expression = `${a} ${operation} ${b} `;
-  //  const expression = cons(operation, cons(a, b));
 };
 
-const thisGame = () => startGames(cons(description, cons(genRandom, checkNumber)));
-//  const checkAnswer = checkNumber(number);
+export const gameCalc = () => {
+  const randomNum = genRandom();
+  const trueAnswer = checkNumber(randomNum);
 
-export default thisGame;
+  return cons(randomNum, trueAnswer);
+};
+
+const gameEvenStart = () => startGames(cons(description, gameCalc));
+
+export default gameEvenStart;
