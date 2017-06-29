@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "brain_games_har1ey": "^1.0.7",
+    "hexlet-pairs": "^1.0.3",
     "readline-sync": "*"
   }
 }
