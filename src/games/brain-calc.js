@@ -48,6 +48,6 @@ export const gameCalc = () => {
   return cons(randomNum, trueAnswer);
 };
 
-const gameEvenStart = () => startGames(cons(description, gameCalc));
+const gameCalcStart = () => startGames(cons(description, gameCalc));
 
-export default gameEvenStart;
+export default gameCalcStart;
