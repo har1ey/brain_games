@@ -1,4 +1,4 @@
-install: 
+install:
 	npm install
 
 run:
@@ -6,6 +6,9 @@ run:
 
 even:
 	npm run babel-node -- src/bin/brain-even.js
+
+calc:
+	npm run babel-node -- src/bin/brain-calc.js
 
 lint:
 	npm run eslint -- src
