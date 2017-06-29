@@ -4,24 +4,22 @@ import { car, cdr } from 'hexlet-pairs';
 
 
 const startGames = (gameOptions) => {
-  const data = gameOptions;
-  const description = car(data);
+  const description = car(gameOptions);
 
   console.log('Welcome to the Brain Games!');
   console.log(`${description}\n`);
 
-  const actual = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${actual}!\n`);
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!\n`);
 
   let count = 0;
 
   while (count !== 3) {
-    const randomNumber = car(cdr(data));
-    const number = randomNumber();
+    const itsGame = cdr(gameOptions)(); // Oo =)
+    const randomNum = car(itsGame);
+    const checkAnswer = cdr(itsGame);
 
-    console.log(`Question: ${number}`);
-    const checkNumber = cdr(cdr(data));
-    const checkAnswer = checkNumber(number);
+    console.log(`Question: ${randomNum}`);
 
     const answer = readlineSync.question('Your answer: ');
 
@@ -34,8 +32,8 @@ const startGames = (gameOptions) => {
     }
   }
 
-  if (count === 3) console.log(`Congratulations, ${actual}!`);
-  else console.log(`Let's try again, ${actual}!`);
+  if (count === 3) console.log(`Congratulations, ${name}!`);
+  else console.log(`Let's try again, ${name}!`);
 };
 
 export default startGames;

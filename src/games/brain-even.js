@@ -15,7 +15,13 @@ const checkNumber = (number) => {
 
 const genRandom = () => Math.floor(Math.random() * 100);
 
-const thisGame = () => startGames(cons(description, cons(genRandom, checkNumber)));
-//  const checkAnswer = checkNumber(number);
+export const gameEven = () => {
+  const randomNum = genRandom();
+  const trueAnswer = checkNumber(randomNum);
 
-export default thisGame;
+  return cons(randomNum, trueAnswer);
+};
+
+const gameEvenStart = () => startGames(cons(description, gameEven));
+
+export default gameEvenStart;
