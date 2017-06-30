@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 import { car, cdr, isPair } from 'hexlet-pairs';
 
 // fix hexlet-pairs toString
-const toStringHexlet = (pair) => {
+const toString = (pair) => {
   const rec = (p) => {
     if (!isPair(p)) {
       return String(p);
@@ -30,7 +30,7 @@ const startGames = (gameOptions) => {
   while (count !== 3) {
     const gameData = cdr(gameOptions)();
 
-    const newRandomNum = toStringHexlet(car(gameData));
+    const newRandomNum = toString(car(gameData));
     //  const newRandomNum = (isPair(car(gameData))) ? toString(car(gameData))
     // : String(car(gameData));
 
