@@ -13,13 +13,13 @@ const checkNumber = (number) => {
   return 'no';
 };
 
-const genRandom = () => Math.floor(Math.random() * 100);
+const randomNum = () => Math.floor(Math.random() * 100);
 
 export const gameEven = () => {
-  const randomNum = genRandom();
-  const trueAnswer = checkNumber(randomNum);
+  const newRandomNum = randomNum();
+  const trueAnswer = checkNumber(newRandomNum);
 
-  return cons(randomNum, trueAnswer);
+  return cons(newRandomNum, trueAnswer);
 };
 
 const gameEvenStart = () => startGames(cons(description, gameEven));

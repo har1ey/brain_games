@@ -1,51 +1,53 @@
 #!/usr/bin/env node
 //  import readlineSync from 'readline-sync';
 //  import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { cons } from 'hexlet-pairs';
+import { cons, car, cdr } from 'hexlet-pairs';
 
 import startGames from '..';
 
 const description = 'What is the result of the expression?';
 
-const checkNumber = (expression) => {
-  const exp = expression.split(' ');
+const calcExpression = (expression) => {
+  const a = car(expression);
+  const b = cdr(cdr(expression));
+  const operation = car(cdr(expression));
 
-  switch (exp[1]) {
+  switch (operation) {
     case '+': {
-      return String(Number(exp[0]) + Number(exp[2]));
+      return a + b;
     }
     case '-': {
-      return String(Number(exp[0]) - Number(exp[2]));
+      return a - b;
     }
     default: {
-      return String(Number(exp[0]) * Number(exp[2]));
+      return a * b;
     }
   }
 };
 
-const genRandom = () => {
+const createExpression = () => {
   const a = Math.floor(Math.random() * 100);
   const b = Math.floor(Math.random() * 100);
   const operation = Math.floor((Math.random() * 3) + 1);
 
   switch (operation) {
     case 1: {
-      return `${a} + ${b} `;
+      return cons(a, cons('+', b));
     }
     case 2: {
-      return `${a} - ${b} `;
+      return cons(a, cons('-', b));
     }
     default: {
-      return `${a} * ${b} `;
+      return cons(a, cons('*', b));
     }
   }
 };
 
 export const gameCalc = () => {
-  const randomNum = genRandom();
-  const trueAnswer = checkNumber(randomNum);
+  const newExpression = createExpression();
+  const trueAnswer = String(calcExpression(newExpression));
 
-  return cons(randomNum, trueAnswer);
+  return cons(newExpression, trueAnswer);
 };
 
 const gameCalcStart = () => startGames(cons(description, gameCalc));

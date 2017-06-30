@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 //  import readlineSync from 'readline-sync';
 //  import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { cons } from 'hexlet-pairs';
+import { cons, car, cdr } from 'hexlet-pairs';
 
 import startGames from '..';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const checkNumber = (numbers) => {
-  const nums = numbers.split(' ');
-  let a = nums[0];
-  let b = nums[1];
+const getGCD = (numbers) => {
+  let a = car(numbers);
+  let b = cdr(numbers);
 
   while (a !== 0 && b !== 0) {
     if (a > b) {
@@ -19,21 +18,21 @@ const checkNumber = (numbers) => {
       b %= a;
     }
   }
-  return String((Number(a) + Number(b)));
+  return a + b;
 };
 
-const genRandom = () => {
+const genRandomNums = () => {
   const a = Math.floor(Math.random() * 100);
   const b = Math.floor(Math.random() * 100);
 
-  return `${a} ${b}`;
+  return cons(a, b);
 };
 
 export const gameGCD = () => {
-  const randomNum = genRandom();
-  const trueAnswer = checkNumber(randomNum);
+  const newRandomNums = genRandomNums();
+  const trueAnswer = String(getGCD(newRandomNums));
 
-  return cons(randomNum, trueAnswer);
+  return cons(newRandomNums, trueAnswer);
 };
 
 const gameGCDStart = () => startGames(cons(description, gameGCD));

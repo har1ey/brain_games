@@ -1,7 +1,20 @@
 import readlineSync from 'readline-sync';
 // import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { car, cdr } from 'hexlet-pairs';
+import { car, cdr, isPair } from 'hexlet-pairs';
 
+// fix hexlet-pairs toString
+const toStringHexlet = (pair) => {
+  const rec = (p) => {
+    if (!isPair(p)) {
+      return String(p);
+    }
+    const left = car(p);
+    const right = cdr(p);
+    return `${rec(left)} ${rec(right)}`;
+  };
+
+  return rec(pair);
+};
 
 const startGames = (gameOptions) => {
   const description = car(gameOptions);
@@ -15,16 +28,20 @@ const startGames = (gameOptions) => {
   let count = 0;
 
   while (count !== 3) {
-    const itsGame = cdr(gameOptions)(); // Oo =)
-    const randomNum = car(itsGame);
-    const checkAnswer = cdr(itsGame);
+    const gameData = cdr(gameOptions)();
 
-    console.log(`Question: ${randomNum}`);
+    const newRandomNum = toStringHexlet(car(gameData));
+    //  const newRandomNum = (isPair(car(gameData))) ? toString(car(gameData))
+    // : String(car(gameData));
+
+    const trueAnswer = cdr(gameData);
+
+    console.log(`Question: ${newRandomNum}`);
 
     const answer = readlineSync.question('Your answer: ');
 
-    if (answer !== checkAnswer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${checkAnswer}'.`);
+    if (answer !== trueAnswer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.`);
       break;
     } else {
       console.log('Correct!');
