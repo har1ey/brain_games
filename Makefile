@@ -16,6 +16,9 @@ gcd:
 balance:
 		npm run babel-node -- src/bin/brain-balance.js
 
+progression:
+				npm run babel-node -- src/bin/brain-progression.js
+
 lint:
 	npm run eslint -- src
 
