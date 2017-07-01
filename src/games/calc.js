@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-//  import readlineSync from 'readline-sync';
-//  import { cons, car, cdr, toString } from 'hexlet-pairs';
 import { cons, car, cdr } from 'hexlet-pairs';
-
+import { randomNum } from '../utils';
 import startGames from '..';
 
 const description = 'What is the result of the expression?';
@@ -26,9 +24,9 @@ const calcExpression = (expression) => {
 };
 
 const createExpression = () => {
-  const a = Math.floor(Math.random() * 100);
-  const b = Math.floor(Math.random() * 100);
-  const operation = Math.floor((Math.random() * 3) + 1);
+  const a = randomNum(1, 100);
+  const b = randomNum(1, 100);
+  const operation = randomNum(1, 3);
 
   switch (operation) {
     case 1: {

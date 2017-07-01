@@ -1,16 +1,14 @@
 #!/usr/bin/env node
-//  import readlineSync from 'readline-sync';
-//  import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { cons, car, cdr } from 'hexlet-pairs';
-import randomNum from '../functions';
 
+import { cons, car, cdr } from 'hexlet-pairs';
+import { randomNum } from '../utils';
 import startGames from '..';
 
 const description = 'What number is missing in this progression?';
 
 const genProgression = (number) => {
   const lostIndex = randomNum(0, 10);
-  const d = 3;
+  const d = randomNum(2, 7);
   let numProgression = number;
   let res = '';
   let answer = 0;

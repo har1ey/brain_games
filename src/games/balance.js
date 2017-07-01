@@ -2,7 +2,7 @@
 //  import readlineSync from 'readline-sync';
 //  import { cons, car, cdr, toString } from 'hexlet-pairs';
 import { cons } from 'hexlet-pairs';
-
+import { randomNum } from '../utils';
 import startGames from '..';
 
 const description = 'Balance the given number.';
@@ -32,15 +32,13 @@ const getBalanceNumber = (number) => {
 };
 
 
-const randomNum = () => Math.floor((Math.random() * 9991) + 10);
-
 export const gameBalance = () => {
-  const newRandomNum = randomNum();
+  const newRandomNum = randomNum(10, 10000);
   const trueAnswer = getBalanceNumber(newRandomNum);
 
   return cons(newRandomNum, trueAnswer);
 };
 
-const gameEvenStart = () => startGames(cons(description, gameBalance));
+const gameBalanceStart = () => startGames(cons(description, gameBalance));
 
-export default gameEvenStart;
+export default gameBalanceStart;

@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-//  import readlineSync from 'readline-sync';
-//  import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { cons, car, cdr } from 'hexlet-pairs';
 
+import { cons, car, cdr } from 'hexlet-pairs';
+import { randomNum } from '../utils';
 import startGames from '..';
 
 const description = 'Find the greatest common divisor of given numbers.';
@@ -22,8 +21,8 @@ const getGCD = (numbers) => {
 };
 
 const genRandomNums = () => {
-  const a = Math.floor(Math.random() * 100);
-  const b = Math.floor(Math.random() * 100);
+  const a = randomNum(1, 100);
+  const b = randomNum(1, 100);
 
   return cons(a, b);
 };

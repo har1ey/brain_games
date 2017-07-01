@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-// import { cons, car, cdr, toString } from 'hexlet-pairs';
 import { car, cdr, isPair } from 'hexlet-pairs';
 
 // fix hexlet-pairs toString

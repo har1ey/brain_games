@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-//  import readlineSync from 'readline-sync';
-//  import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { cons } from 'hexlet-pairs';
-import randomNum from '../functions';
 
+import { cons } from 'hexlet-pairs';
+import { randomNum } from '../utils';
 import startGames from '..';
 
-const description = 'Answer "yes" if number prime otherwise answer "no"\n';
+const description = 'Answer "yes" if number prime otherwise answer "no"';
 
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
@@ -16,7 +14,6 @@ const isPrime = (number) => {
   }
   return true;
 };
-
 
 export const gamePrime = () => {
   const newRandomNum = randomNum(1, 100);

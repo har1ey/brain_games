@@ -1,11 +1,10 @@
 #!/usr/bin/env node
-//  import readlineSync from 'readline-sync';
-//  import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { cons } from 'hexlet-pairs';
 
+import { cons } from 'hexlet-pairs';
+import { randomNum } from '../utils';
 import startGames from '..';
 
-const description = 'Answer "yes" if number even otherwise answer "no"\n';
+const description = 'Answer "yes" if number even otherwise answer "no"';
 
 const checkNumber = (number) => {
   if (number % 2 === 0) return 'yes';
@@ -13,10 +12,8 @@ const checkNumber = (number) => {
   return 'no';
 };
 
-const randomNum = () => Math.floor(Math.random() * 100);
-
 export const gameEven = () => {
-  const newRandomNum = randomNum();
+  const newRandomNum = randomNum(1, 100);
   const trueAnswer = checkNumber(newRandomNum);
 
   return cons(newRandomNum, trueAnswer);
