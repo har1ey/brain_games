@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import { car, cdr, isPair } from 'hexlet-pairs';
+import { welcome } from './utils';
 
 // fix hexlet-pairs toString
 const toString = (pair) => {
@@ -18,7 +19,7 @@ const toString = (pair) => {
 const startGames = (gameOptions) => {
   const description = car(gameOptions);
 
-  console.log('Welcome to the Brain Games!');
+  welcome();
   console.log(`${description}\n`);
 
   const name = readlineSync.question('May I have your name? ');
