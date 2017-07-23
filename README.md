@@ -1,4 +1,4 @@
-# project-lvl1-s104
+# Brain Games
 
 [![Code Climate](https://codeclimate.com/github/har1ey/project-lvl1-s104/badges/gpa.svg)](https://codeclimate.com/github/har1ey/project-lvl1-s104)
 [![Issue Count](https://codeclimate.com/github/har1ey/project-lvl1-s104/badges/issue_count.svg)](https://codeclimate.com/github/har1ey/project-lvl1-s104)
